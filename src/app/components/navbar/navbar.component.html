@@ -1,0 +1,29 @@
+<nav class="p-4 sticky top-0 text-gray-900 md:w-[350px]">
+    <div class="md:pr-20">
+        <div>
+            <span class="text-4xl hidden md:block font-extrabold">Kisan Mitra</span>
+            <span class="text-4xl md:hidden font-extrabold">KM</span>
+        </div>
+        <div class="m-2"></div>
+        <span class="text-md text-gray-900 opacity-80 font-light hidden md:block">Kisan ka mdart dost</span>
+    </div>
+    <div class="bg-gray-900 opacity-35 my-3 w-full h-px"></div>
+    <div class="flex w-full *:cursor-pointer [&>*:hover]:bg-primary-light [&>*]:duration-300 flex-col gap-2">
+        <span [routerLink]="['/detect']" class="flex items-center justify-center md:justify-normal p-3 rounded">
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+            <span class="ml-3 hidden md:block">Detect</span>
+        </span>
+        <span [routerLink]="['/inventory']" class="flex items-center justify-center md:justify-normal p-3 rounded">
+            <i class="fa-solid fa-warehouse"></i>
+            <span class="ml-3 hidden md:block">Inventory</span>
+        </span>
+        <span class="flex items-center justify-center md:justify-normal p-3 rounded">
+            <i class="fa-solid fa-message"></i>
+            <span class="ml-3 hidden md:block">Chat</span>
+        </span>
+        <span class="flex items-center justify-center md:justify-normal p-3 rounded">
+            <i class="fa-solid fa-cloud"></i>
+            <span class="ml-3 hidden md:block">Whether</span>
+        </span>
+    </div>
+</nav>

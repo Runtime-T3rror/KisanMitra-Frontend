@@ -1,0 +1,70 @@
+<div class="">
+    <h2 class="text-3xl font-bold mb-3">Detect</h2>
+    <span class="text-gray-500 block">Upload a picture to identify any diseases affecting your
+        crops,
+        identify
+        any
+        weeds
+        present, or determine the maturity of your crop!</span>
+    <div class="w-full h-px bg-gray-900 my-5"></div>
+    <input type="file" (input)="updateFile()" #file value="asd" class="block bg-gray-100 p-3 rounded w-full text-sm text-gray-500
+        file:mr-4 file:py-2 file:px-4
+        file:rounded-full file:border-0
+        file:text-sm
+        file:bg-gray-500 file:text-gray-100
+        hover:file:bg-gray-700
+        file:duration-200
+        file:active:ring-4
+        file:active:ring-offset-1
+        file:active:ring-gray-950
+      " />
+    <div class="w-full flex items-center justify-center my-3" *ngIf="this.show">
+        <div *ngIf="this.diseaseOutput.healthy"
+            class="bg-gray-100 flex flex-col justify-center p-4 w-full border-green-400 border-2 rounded-xl items-center">
+            <i class="text-5xl text-green-400 fa-solid fa-seedling"></i>
+            <span class="mx-4 text-2xl">
+                Looks like your crop is Healthy!
+            </span>
+        </div>
+        <div *ngIf="this.diseaseOutput.disease"
+            class="bg-gray-100 flex flex-col justify-center p-4 w-full border-red-400 border-2 rounded-xl items-center">
+            <i class="text-5xl text-red-400 fa-solid fa-circle-exclamation"></i>
+            <span class="mx-4 text-2xl">
+                Looks like the crop is affected by '{{this.diseaseOutput.diseaseName}}'
+            </span>
+        </div>
+        <div *ngIf="this.diseaseOutput.noConclusion"
+            class="bg-gray-100 flex flex-col justify-center p-4 w-full border-yellow-400 border-2 rounded-xl items-center">
+            <i class="text-5xl text-yellow-400 fa-solid fa-circle-question"></i>
+            <span class="mx-4 text-2xl">
+                Could not find any conclusion!
+            </span>
+        </div>
+        <div *ngIf="this.maturityOutput.show"
+            class="bg-gray-100 flex flex-col justify-center p-4 w-full border-2 rounded-xl items-center">
+            <i class="text-5xl fa-solid fa-circle-question"></i>
+            <span class="mx-4 text-2xl">
+                Your crop is {{this.maturityOutput.ripeness}}
+            </span>
+        </div>
+    </div>
+    <div *ngIf="this.imgUrl !== '' "
+        class="w-full flex justify-around flex-col lg:flex-row items-center p-2 my-5 bg-gray-100 rounded">
+        <img src="{{this.imgUrl}}" alt="" class="rounded lg:w-1/3 object-cover">
+        <div class="my-10 sm:px-10">
+            <span class="sm:text-2xl text-ml font-semibold block">
+                What do you wanna do with this image?
+            </span>
+            <br>
+            <div class="flex rounded-xl text-gray-800 font-bold gap-2">
+                <button type="button" (click)="loadWeed()"
+                    class="w-1/3 duration-300 bg-gray-200 hover:bg-gray-300 rounded-xl p-3">Weed</button>
+                <button type="button" (click)="loadDisease()"
+                    class="w-1/3 duration-300 bg-gray-200 hover:bg-gray-300 rounded-xl p-3">
+                    Diseases</button>
+                <button type="button" (click)="loadMaturity()"
+                    class="w-1/3 duration-300 bg-gray-200 hover:bg-gray-300 rounded-xl p-3">Maturity</button>
+            </div>
+        </div>
+    </div>
+</div>
